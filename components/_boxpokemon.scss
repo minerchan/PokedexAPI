@@ -4,7 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
+  width: 60%;
 }
 
 #tela{
@@ -41,10 +41,11 @@
     left: 5%;
     background-color: #FAFA05;
     border: solid black 1.5px;
-    padding: 1%;
+    padding: .5rem;
     border-radius: 1rem;
     opacity: 1;
     font-size: 1.5rem;
+    text-align: center;
     &::placeholder{
       opacity: .8;
   }
@@ -84,10 +85,96 @@
   border: solid .5px rgba(0, 0, 0, 0.8);
     #pokemonNome{
       width: fit-content;
-      font-size: 2rem;
+      font-size: 3rem;
       text-transform: uppercase;
       margin: 0 auto;
       font-weight: bold;
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+      color: #f8f9fa;
+      text-shadow: black 2px 0px 2px;
     }
+    #pokemonTipo{
+      display: flex;
+      width: 20.5rem;
+      justify-content: center;
+      margin: 0 auto;
+      #pokemonTipo1{
+        margin-right: .5rem;
+      }
+      .tipo{
+        padding: .7rem;
+        width: 10rem;
+        height: 3rem;
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        font-size: 1.5rem;
+        border-radius: .3rem;
+        border: solid .5px rgba(0, 0, 0, 0.8);
+        text-align: center;
+        color: #f8f9fa;
+        font-weight: bold;
+      }
+      .grass{
+        background-color: #7c5;
+      }
+      .poison{
+        background-color: #a59;
+      }
+      .water{
+        background-color: #39f;
+      }
+      .fire{
+        background-color: #f42;
+      }
+      .bug{
+        background-color: #ab2;
+      }
+      .normal{
+        background-color: #aa9;
+      }
+      .electric{
+        background-color: #fc3;
+      }
+      .ground{
+        background-color: #db5;
+      }
+      .fairy{
+        background-color: #e9e;
+      }
+      .fighting{
+        background-color: #b54;
+      }
+      .psychic{
+        background-color: #f59;
+      }
+      .rock{
+        background-color: #ba6;
+      }
+      .ghost{
+        background-color: #66b;
+      }
+      .ice{
+        background-color: #6cf;
+      }
+      .dragon{
+        background-color: #76e;
+      }
+      .dark{
+        background-color: #754;
+      }
+      .steel{
+        background-color: #aab;
+      }
+      .flying{
+        background-color: #89f;
+      }
+    }
+}
 
+#XMLID_116_{
+  opacity: .5;
+}
+#XMLID_115_{
+  opacity: .5;
 }

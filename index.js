@@ -2,17 +2,30 @@
 const pokemonDoVisor = document.querySelector('#pokemonGif'); // Este é o pokemon que aparece no visor
 const campoPesquisa = document.querySelector('#pesquisaPokemon');
 const botaoPesquisa = document.querySelector('#pesquisaPokemonBtn');
+const nomeDisplay = document.querySelector('#pokemonNome');
+const tipoUm = document.querySelector('#pokemonTipo1');
+const tipoDois = document.querySelector('#pokemonTipo2');
 let pokemonNome = 'bulbasaur';
 
 // ================================================== ARMAZENANDO A API EM UMA VARIÁVEL ==================================================
 async function poke(nome){
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json());
+  nomeDisplay.innerHTML = data.name;
+  pokemonDoVisor.src = `./img/anim/${nome}.gif` // Altera a imagem do pokemon de acordo com o nome
+  tipoUm.innerHTML = data.types[0].type.name;
+  tipoUm.classList = `tipo ${data.types[0].type.name}`;
+  if(data.types.length > 1){
+    tipoDois.innerHTML = data.types[1].type.name;
+    tipoDois.classList = `tipo ${data.types[1].type.name}`;
+} else {
+    tipoDois.innerHTML = '';
+    tipoDois.classList = '';
+}
 }
 // ================================================== CAPTURANDO E APAGANDO VALOR DO INPUT ==================================================
 botaoPesquisa.addEventListener('click', () => {
   pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
   campoPesquisa.value = ''; // Apaga o valor do input
-  pokemonDoVisor.src = `./img/anim/${pokemonNome}.gif` // Altera a imagem do pokemon de acordo com o nome
   poke(pokemonNome);
 })
 
