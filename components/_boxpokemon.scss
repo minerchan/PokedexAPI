@@ -1,0 +1,93 @@
+#app{
+  // background-color: yellow;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+}
+
+#tela{
+  position: absolute;
+  top: 27.8%;
+  left: 13%;
+  width: 27%;
+  height: 31%;
+  background-image: url(../img/cenarios/fogo.png);
+  background-size: cover;
+  // background-color: white;
+  border-radius: 5%;
+  border: solid black 1px;
+
+  #pokemonGif{
+    position: absolute;
+    // height: 70%;
+    max-height: 90%;
+    max-width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+}
+#pesquisa{
+  background-color: red;
+  width: max-content;
+  input{
+    position: absolute;
+    height: 10%;
+    top: 81.8%;
+    width: 25%;
+    left: 5%;
+    background-color: #FAFA05;
+    border: solid black 1.5px;
+    padding: 1%;
+    border-radius: 1rem;
+    opacity: 1;
+    font-size: 1.5rem;
+    &::placeholder{
+      opacity: .8;
+  }
+    &::first-letter{
+      text-transform: uppercase;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+  #pesquisaPokemonBtn{
+    position: absolute;
+    width: 5.1%;
+    height: 6.8%;
+    top: 70.5%;
+    left: 6%;
+    border-radius: 50%;
+    background-color: #307AFA;
+    border-color: rgba(0, 0, 0, 0.8);
+    border-width: .5px;
+    border-style: double;
+    cursor: pointer;
+    &:active{
+      width: 5%;
+      height: 6.7%;
+    }
+  }
+}
+#pokemonInfo{
+  position: absolute;
+  width: 38%;
+  height: 50%;
+  background-color: #5AAD63;
+  top: 30%;
+  left: 58%;
+  border-radius: 1rem;
+  border: solid .5px rgba(0, 0, 0, 0.8);
+    #pokemonNome{
+      width: fit-content;
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+
+}

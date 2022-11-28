@@ -1,0 +1,322 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: #05A632;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+#app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+}
+
+#tela {
+  position: absolute;
+  top: 27.8%;
+  left: 13%;
+  width: 27%;
+  height: 31%;
+  background-image: url(../img/cenarios/fogo.png);
+  background-size: cover;
+  border-radius: 5%;
+  border: solid black 1px;
+}
+#tela #pokemonGif {
+  position: absolute;
+  max-height: 90%;
+  max-width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#pesquisa {
+  background-color: red;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+#pesquisa input {
+  position: absolute;
+  height: 10%;
+  top: 81.8%;
+  width: 25%;
+  left: 5%;
+  background-color: #FAFA05;
+  border: solid black 1.5px;
+  padding: 1%;
+  border-radius: 1rem;
+  opacity: 1;
+  font-size: 1.5rem;
+}
+#pesquisa input::-moz-placeholder {
+  opacity: 0.8;
+}
+#pesquisa input:-ms-input-placeholder {
+  opacity: 0.8;
+}
+#pesquisa input::placeholder {
+  opacity: 0.8;
+}
+#pesquisa input::first-letter {
+  text-transform: uppercase;
+}
+#pesquisa input:focus {
+  outline: none;
+}
+#pesquisa #pesquisaPokemonBtn {
+  position: absolute;
+  width: 5.1%;
+  height: 6.8%;
+  top: 70.5%;
+  left: 6%;
+  border-radius: 50%;
+  background-color: #307AFA;
+  border-color: rgba(0, 0, 0, 0.8);
+  border-width: 0.5px;
+  border-style: double;
+  cursor: pointer;
+}
+#pesquisa #pesquisaPokemonBtn:active {
+  width: 5%;
+  height: 6.7%;
+}
+
+#pokemonInfo {
+  position: absolute;
+  width: 38%;
+  height: 50%;
+  background-color: #5AAD63;
+  top: 30%;
+  left: 58%;
+  border-radius: 1rem;
+  border: solid 0.5px rgba(0, 0, 0, 0.8);
+}
+#pokemonInfo #pokemonNome {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.st0 {
+  fill: #05A632;
+}
+
+.st1 {
+  fill: #050505;
+}
+
+.st2 {
+  fill: #05A632;
+}
+
+.st3 {
+  fill: #F23838;
+}
+
+.st4 {
+  fill: #E23434;
+}
+
+.st5 {
+  fill: #A31111;
+}
+
+.st6 {
+  fill: #9A0505;
+}
+
+.st7 {
+  fill: #940505;
+}
+
+.st8 {
+  fill: #900505;
+}
+
+.st9 {
+  fill: #950505;
+}
+
+.st10 {
+  fill: #930505;
+}
+
+.st11 {
+  fill: #910505;
+}
+
+.st12 {
+  fill: #8F0505;
+}
+
+.st13 {
+  fill: #920505;
+}
+
+.st14 {
+  fill: #8B0505;
+}
+
+.st15 {
+  fill: #8E0505;
+}
+
+.st16 {
+  fill: #AFAFAF;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st17 {
+  fill: #656565;
+}
+
+.st18 {
+  fill: #056565;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st19 {
+  fill: #FAFA05;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st20 {
+  fill: #307AFA;
+  stroke: #231F20;
+  stroke-miterlimit: 10;
+}
+
+.st21 {
+  fill: #FA6505;
+  stroke: #231F20;
+  stroke-miterlimit: 10;
+}
+
+.st22 {
+  fill: #50FA05;
+  stroke: #231F20;
+  stroke-miterlimit: 10;
+}
+
+.st23 {
+  fill: #FAFAFA;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st24 {
+  fill: #4FF905;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st25 {
+  fill: #F90505;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st26 {
+  fill: #F9F905;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st27 {
+  fill: #890505;
+}
+
+.st28 {
+  fill: #8C0505;
+}
+
+.st29 {
+  fill: #860505;
+}
+
+.st30 {
+  fill: #870505;
+}
+
+.st31 {
+  fill: #101010;
+}
+
+.st32 {
+  fill: #A5FA6D;
+}
+
+.st33 {
+  fill: #FA7373;
+}
+
+.st34 {
+  fill: #FAFA8F;
+}
+
+.st35 {
+  fill: #FA0505;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st36 {
+  fill: #F00505;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st37 {
+  fill: #F40505;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st38 {
+  fill: #057979;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st39 {
+  fill: #05FAFA;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st40 {
+  fill: #70EF52;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st41 {
+  fill: #FA9A05;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+.st42 {
+  fill: #9AFACF;
+}/*# sourceMappingURL=style.css.map */
