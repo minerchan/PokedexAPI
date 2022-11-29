@@ -204,6 +204,14 @@ html {
   opacity: 0.5;
 }
 
+#pokeDescript {
+  position: relative;
+  top: 0.5rem;
+  font-size: 2rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
 .st0 {
   fill: #05A632;
 }

@@ -1,39 +1,51 @@
-// VARIÁVEIS
+// ================================================== VARIÁVEIS ==================================================
 const pokemonDoVisor = document.querySelector('#pokemonGif'); // Este é o pokemon que aparece no visor
 const campoPesquisa = document.querySelector('#pesquisaPokemon');
 const botaoPesquisa = document.querySelector('#pesquisaPokemonBtn');
 const nomeDisplay = document.querySelector('#pokemonNome');
 const tipoUm = document.querySelector('#pokemonTipo1');
 const tipoDois = document.querySelector('#pokemonTipo2');
+const numeroDex = document.querySelector('#numero');
+const descricao = document.querySelector('#pokeDescript');
 let pokemonNome = 'bulbasaur';
 
 // ================================================== ARMAZENANDO A API EM UMA VARIÁVEL ==================================================
 async function poke(nome){
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json());
-  nomeDisplay.innerHTML = data.name;
+  nomeDisplay.innerHTML = data.name; // altera o nome do pokemon para o nome pesquisado
   pokemonDoVisor.src = `./img/anim/${nome}.gif` // Altera a imagem do pokemon de acordo com o nome
-  tipoUm.innerHTML = data.types[0].type.name;
-  tipoUm.classList = `tipo ${data.types[0].type.name}`;
-  if(data.types.length > 1){
-    tipoDois.innerHTML = data.types[1].type.name;
-    tipoDois.classList = `tipo ${data.types[1].type.name}`;
-} else {
-    tipoDois.innerHTML = '';
-    tipoDois.classList = '';
+  tipoUm.innerHTML = data.types[0].type.name; // Altera o tipo do pokemon de acordo com o nome
+  tipoUm.classList = `tipo ${data.types[0].type.name}`; // Altera a cor do tipo de acordo com o nome
+  const specie = await fetch(data.species.url).then(response => response.json());
+  traducao(specie.flavor_text_entries[17].flavor_text);
+  
+  // console.log(traducao(specie['flavor_text_entries'][3]['flavor_text']));
+  // descricao.innerHTML = traducao(specie['flavor_text_entries'][3]['flavor_text']);
+  
+  // traducao();
+
+
+  if(data.types.length > 1){ // Se o pokemon tiver mais de um tipo, ele adiciona o segundo tipo
+    tipoDois.innerHTML = data.types[1].type.name; // Altera o tipo do pokemon de acordo com o nome
+    tipoDois.classList = `tipo ${data.types[1].type.name}`; // Altera a cor do tipo de acordo com o nome
+} else { // Se o pokemon tiver apenas um tipo, ele remove o segundo tipo
+    tipoDois.innerHTML = ''; // Remove o tipo do pokemon
+    tipoDois.classList = ''; // Remove a cor do tipo
 }
+}
+
+async function traducao(texto){
+  const traduzido = await fetch(`https://api.mymemory.translated.net/get?q=${texto}&langpair=en|pt`).then(response => response.json());
+  descricao.innerHTML = traduzido.responseData.translatedText;
+  // console.log(traduzido.responseData.translatedText)
 }
 // ================================================== CAPTURANDO E APAGANDO VALOR DO INPUT ==================================================
-botaoPesquisa.addEventListener('click', () => {
+botaoPesquisa.addEventListener('click', () => { // Quando o botão de azul for clicado
   pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
+
   campoPesquisa.value = ''; // Apaga o valor do input
-  poke(pokemonNome);
+  poke(pokemonNome); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
 })
-
-
-
-
-
-// 
 
 
 
