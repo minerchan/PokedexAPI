@@ -30,19 +30,45 @@
           <div id="pokemonTipo1" class="tipo grass">grass</div>
           <div id="pokemonTipo2" class="tipo poison">poison</div>
         </div>
-        <div id="pokeDescript">Uma planta sapo muito louca que solta veneno e chicoteia</div>
+        <div id="pokeDescript" class="hidden">Uma planta sapo muito louca que solta veneno e chicoteia</div>
         <!-- <div id="pokemonHabilidades">
           <div class="ability">Overgrow</div>
           <div class="ability hiddenAbility">Chlorophyll</div>
         </div> -->
         <div id="pokemonStats">
-          <div id="pokemonHp"></div>
-          <div id="pokemonAtk"></div>
-          <div id="pokemonDef"></div>
-          <div id="pokemonSpAtk"></div>
-          <div id="pokemonSpDef"></div>
-          <div id="pokemonSpeed"></div>
-        </div>
+          <div id="boxStats">
+            <!-- ================== HP ================== -->
+            <div class="statusNome HP">HP</div>
+            <div id="pokemonHpBar" class="bar">
+              <div id="pokemonHpBarFill" class="barFillHP"></div>
+            </div>
+            <!-- ================== ATK ================== -->
+            <div class="statusNome ATK">ATK</div>
+            <div id="pokemonAtkBar" class="bar">
+              <div id="pokemonAtkBarFill" class="barFillATK"></div>
+            </div>
+            <!-- ================== DEF ================== -->
+            <div class="statusNome DEF">DEF</div>
+              <div id="pokemonDefBar" class="bar">
+                <div id="pokemonDefBarFill" class="barFillDEF"></div>
+              </div>
+            <!-- ================== SPATK ================== -->
+            <div class="statusNome SPATK">SPA</div>
+              <div id="pokemonSpAtkBar" class="bar">
+                <div id="pokemonSpAtkBarFill" class="barFillSPATK"></div>
+              </div>
+            <!-- ================== SPDEF ================== -->
+            <div class="statusNome SPDEF">SDF</div>
+              <div id="pokemonSpDefBar" class="bar">
+                <div id="pokemonSpDefBarFill" class="barFillSPDEF"></div>
+              </div>
+            <!-- ================== SPD ================== -->
+            <div class="statusNome SPEED">SPD</div>
+              <div id="pokemonSpeedBar" class="bar">
+                <div id="pokemonSpeedBarFill" class="barFillSPEED"></div>
+              </div>
+          </div> <!-- FIM DO BOX STATS -->
+        </div> <!--FIM DO POKEMON STATS -->
       </div>
   <svg viewBox="70 4 745 545">
 

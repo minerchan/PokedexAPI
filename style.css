@@ -100,7 +100,7 @@ html {
   position: absolute;
   width: 38%;
   height: 50%;
-  background-color: #5AAD63;
+  background-color: #7d3333;
   top: 30%;
   left: 58%;
   border-radius: 1rem;
@@ -232,6 +232,101 @@ html {
   height: 5%;
   background-color: rgba(107, 219, 15, 0);
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#pokemonStats {
+  margin-top: 1.5rem;
+  display: block;
+}
+#pokemonStats #boxStats {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+#pokemonStats #boxStats .statusNome {
+  width: 5rem;
+  padding: 0 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  color: #f8f9fa;
+  font-weight: bold;
+  border: solid 0.5px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.1rem;
+  text-shadow: rgba(0, 0, 0, 0.7) 1.5px 0px 1.5px;
+  border-radius: 0.3rem;
+}
+#pokemonStats #boxStats .HP {
+  background-color: #FF5959;
+}
+#pokemonStats #boxStats .ATK {
+  background-color: #F08030;
+}
+#pokemonStats #boxStats .DEF {
+  background-color: #F8D030;
+}
+#pokemonStats #boxStats .SPATK {
+  background-color: #6890F0;
+}
+#pokemonStats #boxStats .SPDEF {
+  background-color: #78C850;
+}
+#pokemonStats #boxStats .SPEED {
+  background-color: #F85888;
+}
+#pokemonStats #boxStats .bar {
+  position: relative;
+  background-color: #ffffff;
+  height: 1rem;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  border: solid 0.5px rgba(0, 0, 0, 0.4);
+}
+#pokemonStats #boxStats .bar:last-child {
+  margin-bottom: 0;
+}
+#pokemonStats #boxStats .bar .barFillHP {
+  position: absolute;
+  height: 100%;
+  background-color: #FF5959;
+  width: 70%;
+}
+#pokemonStats #boxStats .bar .barFillATK {
+  position: absolute;
+  height: 100%;
+  background-color: #F08030;
+  width: 30%;
+}
+#pokemonStats #boxStats .bar .barFillDEF {
+  position: absolute;
+  height: 100%;
+  background-color: #F8D030;
+  width: 30%;
+}
+#pokemonStats #boxStats .bar .barFillSPATK {
+  position: absolute;
+  height: 100%;
+  background-color: #6890F0;
+  width: 30%;
+}
+#pokemonStats #boxStats .bar .barFillSPDEF {
+  position: absolute;
+  height: 100%;
+  background-color: #78C850;
+  width: 30%;
+}
+#pokemonStats #boxStats .bar .barFillSPEED {
+  position: absolute;
+  height: 100%;
+  background-color: #F85888;
+  width: 30%;
 }
 
 .st0 {
