@@ -7,6 +7,7 @@ const tipoUm = document.querySelector('#pokemonTipo1');
 const tipoDois = document.querySelector('#pokemonTipo2');
 const numeroDex = document.querySelector('#numero');
 const descricao = document.querySelector('#pokeDescript');
+const pokemonStats = document.querySelector('#pokemonStats');
 const botaoEsquerdo = document.querySelector('#controleEsquerdo');
 const botaoDireito = document.querySelector('#controleDireito');
 
@@ -15,7 +16,10 @@ const ATK = document.querySelector('.barFillATK');
 const DEF = document.querySelector('.barFillDEF');
 const SPATK = document.querySelector('.barFillSPATK');
 const SPDEF = document.querySelector('.barFillSPDEF');
-const SPD = document.querySelector('.barFillSPD');
+const SPD = document.querySelector('.barFillSPEED');
+
+const botaoInfo = document.querySelector('#botaoInfo');
+const botaoStats = document.querySelector('#botaoStatus');
 let pokemonNome = 'bulbasaur';
 
 // ================================================== ARMAZENANDO A API EM UMA VARIÁVEL ==================================================
@@ -101,6 +105,14 @@ function continha(numero){
   return numero;
 }
 
+botaoStatus.addEventListener('click', () => {
+  pokemonStats.style.display = 'block';
+  descricao.classList.add('hidden')
+})
+botaoInfo.addEventListener('click', () => {
+  descricao.classList.remove('hidden')
+  pokemonStats.style.display = 'none';
+})
 
 
 

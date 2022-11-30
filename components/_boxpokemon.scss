@@ -78,7 +78,7 @@
   position: absolute;
   width: 38%;
   height: 50%;
-  background-color: #7d3333;
+  background-color: #949393;
   top: 30%;
   left: 58%;
   border-radius: 1rem;
@@ -299,5 +299,51 @@
         width: 15%;
       }
     }
+  }
+}
+#botaoStatus{
+  position: absolute;
+  top: 83%;
+  left: 61%;
+  width: 14%;
+  height: 8.9%;
+  background-color: #307AFA;
+  border: solid 0.5px rgba(0, 0, 0, 0.8);
+  border-radius: .5rem;
+  opacity: .9;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 1rem;
+  letter-spacing: .2rem;
+  // font-weight: bold;
+  color: #fff;
+  text-shadow: black 2px 0px 2px;
+  &:hover{
+    opacity: 1;
+  }
+}
+#botaoInfo{
+  position: absolute;
+  top: 83%;
+  left: 78%;
+  width: 14%;
+  height: 8.9%;
+  background-color: #307AFA;
+  border: solid 0.5px rgba(0, 0, 0, 0.8);
+  border-radius: .5rem;
+  opacity: .9;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 1rem;
+  letter-spacing: .2rem;
+  // font-weight: bold;
+  color: #fff;
+  text-shadow: black 2px 0px 2px;
+  &:hover{
+    opacity: 1;
   }
 }
