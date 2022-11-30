@@ -9,6 +9,13 @@ const numeroDex = document.querySelector('#numero');
 const descricao = document.querySelector('#pokeDescript');
 const botaoEsquerdo = document.querySelector('#controleEsquerdo');
 const botaoDireito = document.querySelector('#controleDireito');
+
+const HP = document.querySelector('.barFillHP');
+const ATK = document.querySelector('.barFillATK');
+const DEF = document.querySelector('.barFillDEF');
+const SPATK = document.querySelector('.barFillSPATK');
+const SPDEF = document.querySelector('.barFillSPDEF');
+const SPD = document.querySelector('.barFillSPD');
 let pokemonNome = 'bulbasaur';
 
 // ================================================== ARMAZENANDO A API EM UMA VARIÁVEL ==================================================
@@ -25,6 +32,13 @@ async function poke(nome, direcao){
   pokemonDoVisor.src = `./img/anim/${data.name}.gif` // Altera a imagem do pokemon de acordo com o nome
   tipoUm.innerHTML = data.types[0].type.name; // Altera o tipo do pokemon de acordo com o nome
   tipoUm.classList = `tipo ${data.types[0].type.name}`; // Altera a cor do tipo de acordo com o nome
+  HP.style.width = `${continha(data.stats[0].base_stat)}%`;
+  ATK.style.width = `${continha(data.stats[1].base_stat)}%`;
+  DEF.style.width = `${continha(data.stats[2].base_stat)}%`;
+  SPATK.style.width = `${continha(data.stats[3].base_stat)}%`;
+  SPDEF.style.width = `${continha(data.stats[4].base_stat)}%`;
+  SPD.style.width = `${continha(data.stats[5].base_stat)}%`;
+
   const specie = await fetch(data.species.url).then(response => response.json());
   traducao(specie.flavor_text_entries[12].flavor_text);
   
@@ -80,7 +94,12 @@ document.addEventListener('keydown', (event)=>{
 
 
 
-
+// base 300, onde 300 é 100%
+function continha(numero){
+  // 3 = 1%
+  numero = numero / 3;
+  return numero;
+}
 
 
 
