@@ -7,17 +7,26 @@ const tipoUm = document.querySelector('#pokemonTipo1');
 const tipoDois = document.querySelector('#pokemonTipo2');
 const numeroDex = document.querySelector('#numero');
 const descricao = document.querySelector('#pokeDescript');
+const botaoEsquerdo = document.querySelector('#controleEsquerdo');
+const botaoDireito = document.querySelector('#controleDireito');
 let pokemonNome = 'bulbasaur';
 
 // ================================================== ARMAZENANDO A API EM UMA VARIÁVEL ==================================================
-async function poke(nome){
-  const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json());
+async function poke(nome, direcao){
+  let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json());
+  const direita = data.id + 1;
+  const esquerda = data.id - 1;
+  if(direcao === 'direita'){
+    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${direita}`).then(response => response.json());
+  } else if(direcao === 'esquerda'){
+    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${esquerda}`).then(response => response.json());
+  }
   nomeDisplay.innerHTML = data.name; // altera o nome do pokemon para o nome pesquisado
-  pokemonDoVisor.src = `./img/anim/${nome}.gif` // Altera a imagem do pokemon de acordo com o nome
+  pokemonDoVisor.src = `./img/anim/${data.name}.gif` // Altera a imagem do pokemon de acordo com o nome
   tipoUm.innerHTML = data.types[0].type.name; // Altera o tipo do pokemon de acordo com o nome
   tipoUm.classList = `tipo ${data.types[0].type.name}`; // Altera a cor do tipo de acordo com o nome
   const specie = await fetch(data.species.url).then(response => response.json());
-  traducao(specie.flavor_text_entries[17].flavor_text);
+  traducao(specie.flavor_text_entries[12].flavor_text);
   
   // console.log(traducao(specie['flavor_text_entries'][3]['flavor_text']));
   // descricao.innerHTML = traducao(specie['flavor_text_entries'][3]['flavor_text']);
@@ -49,6 +58,25 @@ botaoPesquisa.addEventListener('click', () => { // Quando o botão de azul for c
 
 
 
+botaoDireito.addEventListener('click', () => {
+  pokemonNome = nomeDisplay.innerHTML;
+  poke(pokemonNome, "direita");
+})
+
+botaoEsquerdo.addEventListener('click', () => {
+  pokemonNome = nomeDisplay.innerHTML;
+  poke(pokemonNome, "esquerda");
+})
+
+document.addEventListener('keydown', (event)=>{
+  if(event.keyCode == 39){
+    pokemonNome = nomeDisplay.innerHTML;
+    poke(pokemonNome, "direita");
+  } else if(event.keyCode == 37){
+    pokemonNome = nomeDisplay.innerHTML;
+    poke(pokemonNome, "esquerda");
+  }
+})
 
 
 

@@ -206,10 +206,32 @@ html {
 
 #pokeDescript {
   position: relative;
-  top: 0.5rem;
+  top: 1rem;
   font-size: 2rem;
   width: 90%;
   margin: 0 auto;
+}
+
+#controleDireito {
+  position: absolute;
+  top: 77.5%;
+  left: 40%;
+  right: 0;
+  width: 4.6%;
+  height: 5%;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+#controleEsquerdo {
+  position: absolute;
+  top: 77.5%;
+  left: 32.7%;
+  right: 0;
+  width: 4.6%;
+  height: 5%;
+  background-color: rgba(107, 219, 15, 0);
+  cursor: pointer;
 }
 
 .st0 {
