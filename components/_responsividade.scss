@@ -1,0 +1,129 @@
+// TODAS AS LARGURAS OLHANDO 600PX DE ALTURA
+// arrumar botoes azuis de status e info depois 
+// quebra em 370px de largura 560px de altura
+
+@media (max-width: 2500px){
+  html{
+    font-size: 85%;
+  }
+}
+@media (max-width: 1782px){
+  html{
+    font-size: 80%;
+  }
+}
+@media (max-width: 1684px){
+  html{
+    font-size: 75%;
+  }
+}
+@media (max-width: 1570px){
+  html{
+    font-size: 70%;
+  }
+}
+@media (max-width: 1470px){
+  html{
+    font-size: 65%;
+  }
+}
+@media (max-width: 1380px){
+  html{
+    font-size: 62%;
+  }
+}
+@media (max-width: 1340px){
+  html{
+    font-size: 60%;
+  }
+}
+@media (max-width: 1284px){
+  html{
+    font-size: 55%;
+  }
+}
+@media (max-width: 1166px){
+  html{
+    font-size: 50%;
+  }
+}
+@media (max-width: 1068px){
+  #app{
+    width: 68%;
+  }
+}
+@media (max-width: 972px){
+  #app{
+    width: 75%;
+  }
+}
+@media (max-width: 880px){
+  #app{
+    width: 84%;
+  }
+}
+@media (max-width: 792px){
+  #app{
+    width: 94%;
+  }
+}
+@media (max-width: 700px){
+  #app{
+    width: 98%;
+  }
+}
+@media (max-width: 654px){
+ 
+  html{
+    font-size: 45%;
+  }
+  #pesquisa{
+    input{
+      font-size: 2rem;
+    }
+  }
+}
+@media (max-width: 602px){
+ 
+  html{
+    font-size: 40%;
+  }
+  #pesquisa{
+    input{
+      font-size: 2rem;
+    }
+  }
+}
+@media (max-width: 540px){
+ 
+  html{
+    font-size: 35%;
+  }
+  #pesquisa{
+    input{
+      font-size: 2rem;
+    }
+  }
+}
+@media (max-width: 488px){
+ 
+  html{
+    font-size: 30%;
+  }
+  #pesquisa{
+    input{
+      font-size: 2rem;
+    }
+  }
+}
+@media (max-width: 424px){
+ 
+  html{
+    font-size: 25%;
+  }
+  #pesquisa{
+    input{
+      font-size: 2.12rem;
+    }
+  }
+}

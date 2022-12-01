@@ -1,55 +1,56 @@
 // ================================================== VARIÁVEIS ==================================================
 const pokemonDoVisor = document.querySelector('#pokemonGif'); // Este é o pokemon que aparece no visor
-const campoPesquisa = document.querySelector('#pesquisaPokemon');
-const botaoPesquisa = document.querySelector('#pesquisaPokemonBtn');
-const nomeDisplay = document.querySelector('#pokemonNome');
-const tipoUm = document.querySelector('#pokemonTipo1');
-const tipoDois = document.querySelector('#pokemonTipo2');
-const numeroDex = document.querySelector('#numero');
-const descricao = document.querySelector('#pokeDescript');
-const pokemonStats = document.querySelector('#pokemonStats');
-const botaoEsquerdo = document.querySelector('#controleEsquerdo');
-const botaoDireito = document.querySelector('#controleDireito');
+const campoPesquisa = document.querySelector('#pesquisaPokemon'); // Este é o campo de pesquisa amarelo
+const botaoPesquisa = document.querySelector('#pesquisaPokemonBtn'); // Este é o botão de pesquisa azul
+const nomeDisplay = document.querySelector('#pokemonNome'); // Este é o nome do pokemon que aparece no visor
+const tipoUm = document.querySelector('#pokemonTipo1'); // Este é o tipo um do pokemon que aparece no visor
+const tipoDois = document.querySelector('#pokemonTipo2'); // Este é o tipo dois do pokemon que aparece no visor
+const descricao = document.querySelector('#pokeDescript'); // Este é a descrição do pokemon que aparece no visor na tela info
+const pokemonStats = document.querySelector('#pokemonStats'); // Este é o status do pokemon que aparece no visor na tela status
+const botaoEsquerdo = document.querySelector('#controleEsquerdo'); // Este é o botão de controle esquerdo
+const botaoDireito = document.querySelector('#controleDireito'); // Este é o botão de controle direito
 
-const HP = document.querySelector('.barFillHP');
-const ATK = document.querySelector('.barFillATK');
-const DEF = document.querySelector('.barFillDEF');
-const SPATK = document.querySelector('.barFillSPATK');
-const SPDEF = document.querySelector('.barFillSPDEF');
-const SPD = document.querySelector('.barFillSPEED');
+const HP = document.querySelector('.barFillHP'); // Este é a barra de HP
+const ATK = document.querySelector('.barFillATK'); // Este é a barra de ATK
+const DEF = document.querySelector('.barFillDEF'); // Este é a barra de DEF
+const SPATK = document.querySelector('.barFillSPATK'); // Este é a barra de SPATK
+const SPDEF = document.querySelector('.barFillSPDEF'); // Este é a barra de SPDEF
+const SPD = document.querySelector('.barFillSPEED'); // Este é a barra de SPD
 
-const botaoInfo = document.querySelector('#botaoInfo');
-const botaoStats = document.querySelector('#botaoStatus');
-let pokemonNome = 'bulbasaur';
+const botaoInfo = document.querySelector('#botaoInfo'); // Este é o botão de info
+const botaoStats = document.querySelector('#botaoStatus'); // Este é o botão de status
+let pokemonNome = 'bulbasaur'; // Este é o nome do pokemon que aparece no visor atualmente
 
-// ================================================== ARMAZENANDO A API EM UMA VARIÁVEL ==================================================
-async function poke(nome, direcao){
-  let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json());
-  const direita = data.id + 1;
-  const esquerda = data.id - 1;
-  if(direcao === 'direita'){
-    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${direita}`).then(response => response.json());
-  } else if(direcao === 'esquerda'){
-    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${esquerda}`).then(response => response.json());
+// ================================================== FUNÇÕES IDIOTAS ==================================================
+function continha(numero){ // Função que faz a continha para o valor da barra
+  // 3 = 1% | 300 = 100% anotei isso pra não esquecer
+  numero = numero / 3; // Divide o numero por 3 porque os status estão representados por 0 a 300
+  return numero; // Retorna o numero
+}
+
+// ================================================== API CORE ==================================================
+async function poke(nome, direcao){ // Esta função pega o nome do pokemon e a direção que está sendo usado o controle
+  let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json()); // Esta variável armazena a API do pokemon
+  const direita = data.id + 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle direito
+  const esquerda = data.id - 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle esquerdo
+  if(direcao === 'direita'){ // Se a direção for direita, o pokemon do visor será o próximo pokemon
+    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${direita}`).then(response => response.json()); // Esta variável armazena a API do próximo pokemon
+  } else if(direcao === 'esquerda'){ // Se a direção for esquerda, o pokemon do visor será o pokemon anterior
+    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${esquerda}`).then(response => response.json()); // Esta variável armazena a API do pokemon anterior 
   }
   nomeDisplay.innerHTML = data.name; // altera o nome do pokemon para o nome pesquisado
   pokemonDoVisor.src = `./img/anim/${data.name}.gif` // Altera a imagem do pokemon de acordo com o nome
   tipoUm.innerHTML = data.types[0].type.name; // Altera o tipo do pokemon de acordo com o nome
   tipoUm.classList = `tipo ${data.types[0].type.name}`; // Altera a cor do tipo de acordo com o nome
-  HP.style.width = `${continha(data.stats[0].base_stat)}%`;
-  ATK.style.width = `${continha(data.stats[1].base_stat)}%`;
-  DEF.style.width = `${continha(data.stats[2].base_stat)}%`;
-  SPATK.style.width = `${continha(data.stats[3].base_stat)}%`;
-  SPDEF.style.width = `${continha(data.stats[4].base_stat)}%`;
-  SPD.style.width = `${continha(data.stats[5].base_stat)}%`;
+  HP.style.width = `${continha(data.stats[0].base_stat)}%`; // Altera a barra de HP de acordo com o status
+  ATK.style.width = `${continha(data.stats[1].base_stat)}%`; // Altera a barra de ATK de acordo com o status
+  DEF.style.width = `${continha(data.stats[2].base_stat)}%`; // Altera a barra de DEF de acordo com o status
+  SPATK.style.width = `${continha(data.stats[3].base_stat)}%`; // Altera a barra de SPATK de acordo com o status
+  SPDEF.style.width = `${continha(data.stats[4].base_stat)}%`; // Altera a barra de SPDEF de acordo com o status
+  SPD.style.width = `${continha(data.stats[5].base_stat)}%`; // Altera a barra de SPD de acordo com o status
 
-  const specie = await fetch(data.species.url).then(response => response.json());
-  traducao(specie.flavor_text_entries[12].flavor_text);
-  
-  // console.log(traducao(specie['flavor_text_entries'][3]['flavor_text']));
-  // descricao.innerHTML = traducao(specie['flavor_text_entries'][3]['flavor_text']);
-  
-  // traducao();
+  const specie = await fetch(data.species.url).then(response => response.json()); // Esta variável entra dentro da API com o nome pedido e busca a descrição
+  traducao(specie.flavor_text_entries[12].flavor_text); // Esta função traduz a descrição do pokemon
 
 
   if(data.types.length > 1){ // Se o pokemon tiver mais de um tipo, ele adiciona o segundo tipo
@@ -61,116 +62,50 @@ async function poke(nome, direcao){
 }
 }
 
-async function traducao(texto){
-  const traduzido = await fetch(`https://api.mymemory.translated.net/get?q=${texto}&langpair=en|pt`).then(response => response.json());
-  descricao.innerHTML = traduzido.responseData.translatedText;
-  // console.log(traduzido.responseData.translatedText)
+async function traducao(texto){ // Esta função traduz o texto inserido
+  const traduzido = await fetch(`https://api.mymemory.translated.net/get?q=${texto}&langpair=en|pt`).then(response => response.json()); // Esta variável armazena a API de tradução
+  descricao.innerHTML = traduzido.responseData.translatedText; // Altera a descrição do pokemon de acordo com a descrição 
 }
-// ================================================== CAPTURANDO E APAGANDO VALOR DO INPUT ==================================================
+// ================================================== BOTÃO AZUL DE PESQUISA ==================================================
 botaoPesquisa.addEventListener('click', () => { // Quando o botão de azul for clicado
   pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
-
   campoPesquisa.value = ''; // Apaga o valor do input
   poke(pokemonNome); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
 })
 
-
-
-botaoDireito.addEventListener('click', () => {
-  pokemonNome = nomeDisplay.innerHTML;
-  poke(pokemonNome, "direita");
+// ================================================== CONTROLES ==================================================
+botaoDireito.addEventListener('click', () => { // Quando o botão direito for clicado
+  pokemonNome = nomeDisplay.innerHTML; // Armazena o nome do pokemon que está no visor na variável pokemonNome
+  poke(pokemonNome, "direita"); // Chama a função poke com o nome atual e a direção direita fazendo o próximo em relação a ele vir
 })
 
-botaoEsquerdo.addEventListener('click', () => {
-  pokemonNome = nomeDisplay.innerHTML;
-  poke(pokemonNome, "esquerda");
+botaoEsquerdo.addEventListener('click', () => { // Quando o botão esquerdo for clicado
+  pokemonNome = nomeDisplay.innerHTML; // Armazena o nome do pokemon que está no visor na variável pokemonNome
+  poke(pokemonNome, "esquerda"); // Chama a função poke com o nome atual e a direção esquerda fazendo o anterior em relação a ele vir
 })
 
-document.addEventListener('keydown', (event)=>{
-  if(event.keyCode == 39){
-    pokemonNome = nomeDisplay.innerHTML;
-    poke(pokemonNome, "direita");
-  } else if(event.keyCode == 37){
-    pokemonNome = nomeDisplay.innerHTML;
-    poke(pokemonNome, "esquerda");
-  }
-})
-
-
-
-// base 300, onde 300 é 100%
-function continha(numero){
-  // 3 = 1%
-  numero = numero / 3;
-  return numero;
+document.addEventListener('keydown', (event)=>{ // Quando uma tecla for pressionada
+  if(event.keyCode == 39){ // Se a tecla for a seta direita
+    pokemonNome = nomeDisplay.innerHTML; // Armazena o nome do pokemon que está no visor na variável pokemonNome
+    poke(pokemonNome, "direita"); // Chama a função poke com o nome atual e a direção direita fazendo o próximo em relação a ele vir
+  } else if(event.keyCode == 37){ // Se a tecla for a seta esquerda
+    pokemonNome = nomeDisplay.innerHTML; // Armazena o nome do pokemon que está no visor na variável pokemonNome
+    poke(pokemonNome, "esquerda"); // Chama a função poke com o nome atual e a direção esquerda fazendo o anterior em relação a ele vir
+  } else if(event.keyCode == 40){
+    descricao.classList.remove('hidden'); // Mostra a div de descrição
+    pokemonStats.style.display = 'none'; // Esconde a div de status
+} else if(event.keyCode == 38){
+  pokemonStats.style.display = 'block'; // Mostra a div de status
+  descricao.classList.add('hidden') // Esconde a div de descrição
 }
-
-botaoStatus.addEventListener('click', () => {
-  pokemonStats.style.display = 'block';
-  descricao.classList.add('hidden')
-})
-botaoInfo.addEventListener('click', () => {
-  descricao.classList.remove('hidden')
-  pokemonStats.style.display = 'none';
 })
 
-
-
-
-// campoPesquisa.addEventListener('keydown', (e)=>{
-//   e = campoPesquisa.value; // Aqui é onde eu pego a primeira letra do nome do pokemon e coloco em maiúsculo
-//   campoPesquisa.value.charAt(0) = e; // Aqui é onde eu coloco a primeira letra do nome do pokemon em maiúsculo
-// })
-// campoPesquisa.value.extConcharAt(0).toUpperCase(); // Aqui é onde eu pego a primeira letra do nome do pokemon e coloco em maiúsculo
-
-
-
-
-
-
-
-// const card = document.querySelector('.cardPokemon');
-// const imagem = document.querySelector('.imagem');
-// const nome = document.querySelector('.nome');
-// const habUm = document.querySelector('.habilidadeUm');
-// const habDois = document.querySelector('.habilidadeDois');
-// const habTres = document.querySelector('.habilidadeTres');
-// const campo = document.querySelector('#escrever');
-// const botao = document.querySelector('#botao')
-
-
-// // campo.value = nome;
-
-// async function buscandoAPI(parametro){
-//   const teste = await fetch(`https://pokeapi.co/api/v2/pokemon/${parametro}`).then(res => res.json())
-//   // console.log(teste.abilities[1].ability.name)
-  
-//   if (teste.abilities[1] == undefined){
-//     let hability2 = ""
-//     habDois.textContent = hability2;
-  
-//   } else {
-//     let hability2 = teste.abilities[1].ability.name
-//     habDois.textContent = hability2;
-//   }
-
-//   if (teste.abilities[2] == undefined){
-//     let hability3 = ""
-//     habTres.textContent = hability3;
-  
-//   } else {
-//     let hability3 = teste.abilities[2].ability.name
-//     habTres.textContent = hability3;
-//   }
-
-//   imagem.src = teste.sprites.other.home.front_default
-//   nome.textContent = teste.name
-//   habUm.textContent = teste.abilities[0].ability.name
-
-//   }
-  
-//   botao.addEventListener('click', ()=>{
-//     let procurando = campo.value;
-//     campo.value = '';
-//     buscandoAPI(procurando)
-//   })
+// ================================================== BOTÕES STATUS E INFO ==================================================
+botaoStatus.addEventListener('click', () => { // Quando o botão de status for clicado
+  pokemonStats.style.display = 'block'; // Mostra a div de status
+  descricao.classList.add('hidden') // Esconde a div de descrição
+})
+botaoInfo.addEventListener('click' || 'keydown', () => { // Quando o botão de info for clicado
+  descricao.classList.remove('hidden') // Mostra a div de descrição
+  pokemonStats.style.display = 'none'; // Esconde a div de status
+})
