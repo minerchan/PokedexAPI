@@ -362,6 +362,13 @@ html {
 #botaoStatus:hover {
   opacity: 1;
 }
+#botaoStatus p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+}
 
 #botaoInfo {
   position: absolute;
@@ -384,6 +391,14 @@ html {
 }
 #botaoInfo:hover {
   opacity: 1;
+}
+#botaoInfo p {
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
 }
 
 .st0 {
