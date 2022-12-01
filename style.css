@@ -121,7 +121,7 @@ html {
 }
 #pokemonInfo #pokemonTipo {
   display: flex;
-  width: 20.5rem;
+  width: 24.5rem;
   justify-content: center;
   margin: 0 auto;
 }
@@ -130,7 +130,7 @@ html {
 }
 #pokemonInfo #pokemonTipo .tipo {
   padding: 0.7rem;
-  width: 10rem;
+  width: 12rem;
   height: 3rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -287,43 +287,54 @@ html {
   height: 1rem;
   width: 100%;
   margin-bottom: 0.4rem;
-  border: solid 0.5px rgba(0, 0, 0, 0.4);
 }
 #pokemonStats #boxStats .bar:last-child {
   margin-bottom: 0;
 }
 #pokemonStats #boxStats .bar .barFillHP {
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   background-color: #FF5959;
   width: 15%;
 }
 #pokemonStats #boxStats .bar .barFillATK {
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   background-color: #F08030;
   width: 16.33%;
 }
 #pokemonStats #boxStats .bar .barFillDEF {
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   background-color: #F8D030;
   width: 16.33%;
 }
 #pokemonStats #boxStats .bar .barFillSPATK {
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   background-color: #6890F0;
   width: 21.66%;
 }
 #pokemonStats #boxStats .bar .barFillSPDEF {
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   background-color: #78C850;
   width: 21.66%;
 }
 #pokemonStats #boxStats .bar .barFillSPEED {
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   background-color: #F85888;
   width: 15%;

@@ -70,18 +70,18 @@ async function traducao(texto){ // Esta função traduz o texto inserido
 botaoPesquisa.addEventListener('click', () => { // Quando o botão de azul for clicado
   pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
   campoPesquisa.value = ''; // Apaga o valor do input
-  poke(pokemonNome); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
+  poke(pokemonNome.toLocaleLowerCase()); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
 })
 
 // ================================================== CONTROLES ==================================================
 botaoDireito.addEventListener('click', () => { // Quando o botão direito for clicado
   pokemonNome = nomeDisplay.innerHTML; // Armazena o nome do pokemon que está no visor na variável pokemonNome
-  poke(pokemonNome, "direita"); // Chama a função poke com o nome atual e a direção direita fazendo o próximo em relação a ele vir
+  poke(pokemonNome.toLocaleLowerCase(), "direita"); // Chama a função poke com o nome atual e a direção direita fazendo o próximo em relação a ele vir
 })
 
 botaoEsquerdo.addEventListener('click', () => { // Quando o botão esquerdo for clicado
   pokemonNome = nomeDisplay.innerHTML; // Armazena o nome do pokemon que está no visor na variável pokemonNome
-  poke(pokemonNome, "esquerda"); // Chama a função poke com o nome atual e a direção esquerda fazendo o anterior em relação a ele vir
+  poke(pokemonNome.toLocaleLowerCase(), "esquerda"); // Chama a função poke com o nome atual e a direção esquerda fazendo o anterior em relação a ele vir
 })
 
 document.addEventListener('keydown', (event)=>{ // Quando uma tecla for pressionada
@@ -100,7 +100,7 @@ document.addEventListener('keydown', (event)=>{ // Quando uma tecla for pression
 } else if(event.keyCode == 13){
   pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
   campoPesquisa.value = ''; // Apaga o valor do input
-  poke(pokemonNome); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
+  poke(pokemonNome.toLocaleLowerCase()); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
 }
 })
 
