@@ -97,6 +97,10 @@ document.addEventListener('keydown', (event)=>{ // Quando uma tecla for pression
 } else if(event.keyCode == 38){
   pokemonStats.style.display = 'block'; // Mostra a div de status
   descricao.classList.add('hidden') // Esconde a div de descrição
+} else if(event.keyCode == 13){
+  pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
+  campoPesquisa.value = ''; // Apaga o valor do input
+  poke(pokemonNome); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
 }
 })
 
