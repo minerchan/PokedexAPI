@@ -9,6 +9,8 @@ const descricao = document.querySelector('#pokeDescript'); // Este é a descriç
 const pokemonStats = document.querySelector('#pokemonStats'); // Este é o status do pokemon que aparece no visor na tela status
 const botaoEsquerdo = document.querySelector('#controleEsquerdo'); // Este é o botão de controle esquerdo
 const botaoDireito = document.querySelector('#controleDireito'); // Este é o botão de controle direito
+const botaoCima = document.querySelector('#controleCima'); // Este é o botão de controle cima
+const botaoBaixo = document.querySelector('#controleBaixo'); // Este é o botão de controle baixo
 
 const HP = document.querySelector('.barFillHP'); // Este é a barra de HP
 const ATK = document.querySelector('.barFillATK'); // Este é a barra de ATK
@@ -68,12 +70,25 @@ async function traducao(texto){ // Esta função traduz o texto inserido
 }
 // ================================================== BOTÃO AZUL DE PESQUISA ==================================================
 botaoPesquisa.addEventListener('click', () => { // Quando o botão de azul for clicado
-  pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
-  campoPesquisa.value = ''; // Apaga o valor do input
-  poke(pokemonNome.toLocaleLowerCase()); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
+  if(campoPesquisa.value === ''){
+    alert('Por favor pesquise o nome certo do pokémon que você procura')
+  } else {
+    pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
+    campoPesquisa.value = ''; // Apaga o valor do input
+    poke(pokemonNome.toLocaleLowerCase()); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
+  }
 })
 
 // ================================================== CONTROLES ==================================================
+botaoCima.addEventListener('click', () =>{
+  descricao.classList.remove('hidden') // Mostra a div de descrição
+  pokemonStats.style.display = 'none'; // Esconde a div de status
+})
+botaoBaixo.addEventListener('click', () =>{
+  pokemonStats.style.display = 'block'; // Mostra a div de status
+  descricao.classList.add('hidden') // Esconde a div de descrição
+})
+
 botaoDireito.addEventListener('click', () => { // Quando o botão direito for clicado
   pokemonNome = nomeDisplay.innerHTML; // Armazena o nome do pokemon que está no visor na variável pokemonNome
   poke(pokemonNome.toLocaleLowerCase(), "direita"); // Chama a função poke com o nome atual e a direção direita fazendo o próximo em relação a ele vir
@@ -98,9 +113,13 @@ document.addEventListener('keydown', (event)=>{ // Quando uma tecla for pression
   pokemonStats.style.display = 'block'; // Mostra a div de status
   descricao.classList.add('hidden') // Esconde a div de descrição
 } else if(event.keyCode == 13){
-  pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
-  campoPesquisa.value = ''; // Apaga o valor do input
-  poke(pokemonNome.toLocaleLowerCase()); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
+  if(campoPesquisa.value === ''){
+    alert('Por favor pesquise o nome certo do pokémon que você procura')
+  } else {
+    pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
+    campoPesquisa.value = ''; // Apaga o valor do input
+    poke(pokemonNome.toLocaleLowerCase()); // Chama a função poke com o valor do input, no caso o nome que foi pesquisado
+  }
 }
 })
 

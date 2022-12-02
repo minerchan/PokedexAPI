@@ -212,6 +212,28 @@ html {
   margin: 0 auto;
 }
 
+#controleCima {
+  position: absolute;
+  top: 72.5%;
+  left: 37%;
+  right: 0;
+  width: 3.4%;
+  height: 5.5%;
+  background-color: rgba(64, 0, 255, 0);
+  cursor: pointer;
+}
+
+#controleBaixo {
+  position: absolute;
+  top: 82.5%;
+  left: 37%;
+  right: 0;
+  width: 3.4%;
+  height: 5.5%;
+  background-color: rgba(51, 255, 0, 0);
+  cursor: pointer;
+}
+
 #controleDireito {
   position: absolute;
   top: 77.5%;
