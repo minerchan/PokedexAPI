@@ -1,7 +1,7 @@
 <div align="justify">
 
 <h1>Pokédex - Consumo de API avançado</h1>
-<h4>Este projeto é o resultado dos meus estudos sobre API e funções asyncronas. Caso queira conferir o funcionamento pode acessar o site pronto clicando <a href="https://scrpokedex.netlify.app/">aqui</a></h2>
+<h4>Este projeto é o resultado dos meus estudos sobre API e funções asyncronas. Não tem fim comercial, fiz ele apenas para fixar meu conhecimento sobre a matéria. Caso queira conferir o funcionamento pode acessar o site pronto clicando <a href="https://scrpokedex.netlify.app/">aqui</a></h2>
 
 <h2>&#128161; Funções interessantes:</h2>
 <h4><ul>
@@ -9,9 +9,7 @@
 <li><a href="#controles">Controles</a></li>
 <li><a href="#status">Representação gráfica dos status</a></li>
 <li><a href="#traducao">Descrição e tradução</a></li>
-<li><a href="#interacao">Gif animado dos pokémons</a></li>
-<li><a href="#interacao">Erros previstos</a></li>
-<li><a href="#interacao">Créditos externos</a></li>
+<li><a href="#gifa">Agradecimentos: Gif animado dos pokémons e design da pokédex</a></li>
 </h4>
 
 
@@ -60,8 +58,17 @@
 
 
 
-<a id="interacao">
-<h2>&#x1F441;	Leve interação</h2>
-<img height="300em" src="https://user-images.githubusercontent.com/104655361/180371730-54e3c4e6-521b-47ab-87b4-5ad118bcd033.png">
-<p>Acho que interação é algo que não podia faltar em algo interativo né? Aqui isso é feito com o nome que a pessoa preenche para fazer o currículo ser exibido, subistituindo o nome de usuário e todas as vezes que o nome será citado pelo que ela preencheu, dando assim a impressão de falar diretamente com ela</p>
+<a id="gifa">
+<h2>&#128126;	Agradecimentos: Gif animado dos pokémons e design da pokédex</h2>
+<p>Como todos os outros dados, a API do pokémon também possue diversas imagens, mas são todas estáticas, e eu queria que o pokémon exibido se mexesse, torna tudo muito mais divertido né? Então a princípio eu fiz com que a API me entregasse o nome separado de cada um, que iria ser o nome da imagem que ia usar e a ideia era pesquisar gif por gif e colocar na pasta do site, mas aí achei esse <a href="https://github.com/tdmalone/pokecss-media">repositório</a> de alguém que já tinha feito esse trabalho, esse alguém é o <a href="https://github.com/tdmalone">Tim Malone</a>. Meus agradecimentos a este australiano simpático. Ele também é um dos colaboradores da Poke API, portanto recomendo o perfil dele pra quem estiver desenvolvendo algo parecido.</p>
+  
+<img src="https://user-images.githubusercontent.com/104655361/205312307-3a604af0-323d-4182-9fa4-41e87d57fb72.gif">
+<img src="https://user-images.githubusercontent.com/104655361/205312326-ceb6e819-519f-4690-8d2d-2ffa70ac0e4a.gif">
+<img src="https://user-images.githubusercontent.com/104655361/205312376-83a16edd-dda6-47d4-9cc8-df3bafcf0634.gif">
+  
+<p>Já o design da pokédex foi feito inteiramente em código por um francês no codepain, o nome de usuário dele é <a href="https://codepen.io/Negor">Negor</a>, e apesar de eu ter que alterar boa parte dos botões, é impagável a ajuda que todo o design com sombras ofereceu, então muito obrigado negor!</p>
+</a>
 </div>
+
+  
+
