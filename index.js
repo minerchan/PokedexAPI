@@ -31,38 +31,42 @@ function continha(numero){ // Função que faz a continha para o valor da barra
 }
 
 // ================================================== API CORE ==================================================
-async function poke(nome, direcao){ // Esta função pega o nome do pokemon e a direção que está sendo usado o controle
-  let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json()); // Esta variável armazena a API do pokemon
-  const direita = data.id + 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle direito
-  const esquerda = data.id - 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle esquerdo
-  if(direcao === 'direita'){ // Se a direção for direita, o pokemon do visor será o próximo pokemon
-    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${direita}`).then(response => response.json()); // Esta variável armazena a API do próximo pokemon
-  } else if(direcao === 'esquerda'){ // Se a direção for esquerda, o pokemon do visor será o pokemon anterior
-    data = await fetch(`https://pokeapi.co/api/v2/pokemon/${esquerda}`).then(response => response.json()); // Esta variável armazena a API do pokemon anterior 
+  async function poke(nome, direcao){ // Esta função pega o nome do pokemon e a direção que está sendo usado o controle
+    try{
+      let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json()); // Esta variável armazena a API do pokemon
+    const direita = data.id + 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle direito
+    const esquerda = data.id - 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle esquerdo
+    if(direcao === 'direita'){ // Se a direção for direita, o pokemon do visor será o próximo pokemon
+      data = await fetch(`https://pokeapi.co/api/v2/pokemon/${direita}`).then(response => response.json()); // Esta variável armazena a API do próximo pokemon
+    } else if(direcao === 'esquerda'){ // Se a direção for esquerda, o pokemon do visor será o pokemon anterior
+      data = await fetch(`https://pokeapi.co/api/v2/pokemon/${esquerda}`).then(response => response.json()); // Esta variável armazena a API do pokemon anterior 
+    }
+    nomeDisplay.innerHTML = data.name; // altera o nome do pokemon para o nome pesquisado
+    pokemonDoVisor.src = `./img/anim/${data.name}.gif` // Altera a imagem do pokemon de acordo com o nome
+    tipoUm.innerHTML = data.types[0].type.name; // Altera o tipo do pokemon de acordo com o nome
+    tipoUm.classList = `tipo ${data.types[0].type.name}`; // Altera a cor do tipo de acordo com o nome
+    HP.style.width = `${continha(data.stats[0].base_stat)}%`; // Altera a barra de HP de acordo com o status
+    ATK.style.width = `${continha(data.stats[1].base_stat)}%`; // Altera a barra de ATK de acordo com o status
+    DEF.style.width = `${continha(data.stats[2].base_stat)}%`; // Altera a barra de DEF de acordo com o status
+    SPATK.style.width = `${continha(data.stats[3].base_stat)}%`; // Altera a barra de SPATK de acordo com o status
+    SPDEF.style.width = `${continha(data.stats[4].base_stat)}%`; // Altera a barra de SPDEF de acordo com o status
+    SPD.style.width = `${continha(data.stats[5].base_stat)}%`; // Altera a barra de SPD de acordo com o status
+  
+    const specie = await fetch(data.species.url).then(response => response.json()); // Esta variável entra dentro da API com o nome pedido e busca a descrição
+    traducao(specie.flavor_text_entries[12].flavor_text); // Esta função traduz a descrição do pokemon
+  
+  
+    if(data.types.length > 1){ // Se o pokemon tiver mais de um tipo, ele adiciona o segundo tipo
+      tipoDois.innerHTML = data.types[1].type.name; // Altera o tipo do pokemon de acordo com o nome
+      tipoDois.classList = `tipo ${data.types[1].type.name}`; // Altera a cor do tipo de acordo com o nome
+  } else { // Se o pokemon tiver apenas um tipo, ele remove o segundo tipo
+      tipoDois.innerHTML = ''; // Remove o tipo do pokemon
+      tipoDois.classList = ''; // Remove a cor do tipo
   }
-  nomeDisplay.innerHTML = data.name; // altera o nome do pokemon para o nome pesquisado
-  pokemonDoVisor.src = `./img/anim/${data.name}.gif` // Altera a imagem do pokemon de acordo com o nome
-  tipoUm.innerHTML = data.types[0].type.name; // Altera o tipo do pokemon de acordo com o nome
-  tipoUm.classList = `tipo ${data.types[0].type.name}`; // Altera a cor do tipo de acordo com o nome
-  HP.style.width = `${continha(data.stats[0].base_stat)}%`; // Altera a barra de HP de acordo com o status
-  ATK.style.width = `${continha(data.stats[1].base_stat)}%`; // Altera a barra de ATK de acordo com o status
-  DEF.style.width = `${continha(data.stats[2].base_stat)}%`; // Altera a barra de DEF de acordo com o status
-  SPATK.style.width = `${continha(data.stats[3].base_stat)}%`; // Altera a barra de SPATK de acordo com o status
-  SPDEF.style.width = `${continha(data.stats[4].base_stat)}%`; // Altera a barra de SPDEF de acordo com o status
-  SPD.style.width = `${continha(data.stats[5].base_stat)}%`; // Altera a barra de SPD de acordo com o status
-
-  const specie = await fetch(data.species.url).then(response => response.json()); // Esta variável entra dentro da API com o nome pedido e busca a descrição
-  traducao(specie.flavor_text_entries[12].flavor_text); // Esta função traduz a descrição do pokemon
-
-
-  if(data.types.length > 1){ // Se o pokemon tiver mais de um tipo, ele adiciona o segundo tipo
-    tipoDois.innerHTML = data.types[1].type.name; // Altera o tipo do pokemon de acordo com o nome
-    tipoDois.classList = `tipo ${data.types[1].type.name}`; // Altera a cor do tipo de acordo com o nome
-} else { // Se o pokemon tiver apenas um tipo, ele remove o segundo tipo
-    tipoDois.innerHTML = ''; // Remove o tipo do pokemon
-    tipoDois.classList = ''; // Remove a cor do tipo
-}
-}
+  }
+  catch(error){ // Caso dê erro, mostra no console
+    alert('Você digitou o nome do pokemon incorretamente, por favor digite o nome correto e tente novamente');}
+} 
 
 async function traducao(texto){ // Esta função traduz o texto inserido
   const traduzido = await fetch(`https://api.mymemory.translated.net/get?q=${texto}&langpair=en|pt`).then(response => response.json()); // Esta variável armazena a API de tradução
