@@ -1,14 +1,14 @@
 <div align="justify">
 
 <h1>Pokédex - Consumo de API avançado</h1>
-<h4><b> Este projeto é o resultado dos meus estudos sobre API e funções asyncronas. Caso queira conferir o funcionamento pode acessar o site pronto clicando <a href="https://scrpokedex.netlify.app/">aqui</a><b></h2>
+<h4>Este projeto é o resultado dos meus estudos sobre API e funções asyncronas. Caso queira conferir o funcionamento pode acessar o site pronto clicando <a href="https://scrpokedex.netlify.app/">aqui</a></h2>
 
 <h2>&#128161; Funções interessantes:</h2>
 <h4><ul>
 <li><a href="#pesquisa">Pesquisa por nome</a></li>
 <li><a href="#controles">Controles</a></li>
 <li><a href="#status">Representação gráfica dos status</a></li>
-<li><a href="#digitando">Descrição e tradução</a></li>
+<li><a href="#traducao">Descrição e tradução</a></li>
 <li><a href="#interacao">Gif animado dos pokémons</a></li>
 <li><a href="#interacao">Erros previstos</a></li>
 <li><a href="#interacao">Créditos externos</a></li>
@@ -39,16 +39,26 @@
 
 
 
+
+
 <a id="status">
 <h2>&#128202;	Representação gráfica dos status</h2>
-<img height="300em" src="https://user-images.githubusercontent.com/104655361/180345507-af50ad76-19d2-4b71-b9f0-f65cabdeb071.gif">
-<p>Os dois lados da conversa são da mesma cor com exceção dos balões, mas a tonalidade das cores é alterada por uma sombra RGB quase transparente por cima, foi uma espécie de "efeito photoshop" de camadas isso, só que usando z-index</p> 
+<img height="300em" src="https://user-images.githubusercontent.com/104655361/205302922-d3ae7fc9-f4fb-4207-ad5b-6f308ddb0bfa.gif">
+<p>O status de cada pokémon é representado de forma gráfica levando em conta que a barra cheia seja 300, isso porque nenhum pokémon até então chega a este número, mas um pokémon como a chansey que tem 250 de vida quase chega. Porém a API entrega esse status em número, então para converter esses números em uma porcentagem equivalente ao preenchimento correto da barra eu usei uma função simples que captura o número entregue, divide por 3 e entrega ao css através de uma template string em porcentagem, essa função tem o nome de "continha"</p> 
+<img src="https://user-images.githubusercontent.com/104655361/205304037-7380de70-da89-4db8-93ae-6eec612f66b2.jpg">
+
 </a>
 
-<a id="digitando">
-<h2>&#x2328;	Digitando...</h2>
-<img height="300em" src="https://user-images.githubusercontent.com/104655361/180370767-394b0e80-a6ea-446d-9d71-f99aa05c3fe5.gif">
-<p>É chato esperar sem saber se vem mais mensagem né? Por isso o "online" aqui é trocado por "digitando..." enquanto ainda tiver mensagem chegando, acredito ser ótimo para criar expectativa, assim como em muitas redes sociais por aí</p> </a>
+<a id="traducao">
+<h2>&#127758;	Descrição e tradução</h2>
+<img height="300em" src="https://user-images.githubusercontent.com/104655361/205305784-9e864370-97a3-4a87-8068-579331a0b420.gif">
+<img src="https://user-images.githubusercontent.com/104655361/205307106-a9569a56-ab22-4e27-acce-478ce9802969.jpg">
+<p>A API do pokémon fornece descrições sobre eles de todas as versões de jogos e em vários idiomas, porém não havia em português, então eu usei uma segunda API que é de tradução e peguei as descrições em inglês de uma API e fiz passar pela outra, agora todos eles possuem descrições em português</p>
+<img src="https://user-images.githubusercontent.com/104655361/205307640-a03e7c3b-6cae-4116-9778-d4d1f30e54eb.jpg">
+</a>
+
+
+
 
 <a id="interacao">
 <h2>&#x1F441;	Leve interação</h2>
