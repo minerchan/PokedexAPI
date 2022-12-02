@@ -32,14 +32,14 @@ function continha(numero){ // Função que faz a continha para o valor da barra
 
 // ================================================== API CORE ==================================================
   async function poke(nome, direcao){ // Esta função pega o nome do pokemon e a direção que está sendo usado o controle
-    try{
-      let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json()); // Esta variável armazena a API do pokemon
+    try{ // Tenta fazer o que está dentro do try se der erro ele vai para o catch (daria erro se a pessoa digitasse nome errado por exemplo)
+      let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`).then(response => response.json()); // Esta variável armazena a API do pokemon dentro de uma variável
     const direita = data.id + 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle direito
     const esquerda = data.id - 1; // Esta variável chama o próximo pokemon de acordo com o id, apenas para o controle esquerdo
     if(direcao === 'direita'){ // Se a direção for direita, o pokemon do visor será o próximo pokemon
-      data = await fetch(`https://pokeapi.co/api/v2/pokemon/${direita}`).then(response => response.json()); // Esta variável armazena a API do próximo pokemon
+      data = await fetch(`https://pokeapi.co/api/v2/pokemon/${direita}`).then(response => response.json()); // Então ele usa o nome do pokemon que veio na direita e chama a API dele
     } else if(direcao === 'esquerda'){ // Se a direção for esquerda, o pokemon do visor será o pokemon anterior
-      data = await fetch(`https://pokeapi.co/api/v2/pokemon/${esquerda}`).then(response => response.json()); // Esta variável armazena a API do pokemon anterior 
+      data = await fetch(`https://pokeapi.co/api/v2/pokemon/${esquerda}`).then(response => response.json()); // Entao ele usa o nome do pokemon que veio na esquerda e chama a API dele 
     }
     nomeDisplay.innerHTML = data.name; // altera o nome do pokemon para o nome pesquisado
     pokemonDoVisor.src = `./img/anim/${data.name}.gif` // Altera a imagem do pokemon de acordo com o nome
@@ -64,8 +64,8 @@ function continha(numero){ // Função que faz a continha para o valor da barra
       tipoDois.classList = ''; // Remove a cor do tipo
   }
   }
-  catch(error){ // Caso dê erro, mostra no console
-    alert('Você digitou o nome do pokemon incorretamente, por favor digite o nome correto e tente novamente');}
+  catch(error){ // Caso dê erro...
+    alert('Você digitou o nome do pokemon incorretamente, por favor digite o nome correto e tente novamente');} // Mostra um alerta para o usuário
 } 
 
 async function traducao(texto){ // Esta função traduz o texto inserido
@@ -75,7 +75,7 @@ async function traducao(texto){ // Esta função traduz o texto inserido
 // ================================================== BOTÃO AZUL DE PESQUISA ==================================================
 botaoPesquisa.addEventListener('click', () => { // Quando o botão de azul for clicado
   if(campoPesquisa.value === ''){
-    alert('Por favor pesquise o nome certo do pokémon que você procura')
+    alert('Por favor pesquise o nome certo do pokémon que você procura') // Se o campo de pesquisa estiver vazio, mostra um alerta
   } else {
     pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
     campoPesquisa.value = ''; // Apaga o valor do input
@@ -118,7 +118,7 @@ document.addEventListener('keydown', (event)=>{ // Quando uma tecla for pression
   descricao.classList.add('hidden') // Esconde a div de descrição
 } else if(event.keyCode == 13){
   if(campoPesquisa.value === ''){
-    alert('Por favor pesquise o nome certo do pokémon que você procura')
+    alert('Por favor pesquise o nome certo do pokémon que você procura') // Se o campo de pesquisa estiver vazio, mostra um alerta
   } else {
     pokemonNome = campoPesquisa.value; // Armazena o valor do input na variável pokemonNome
     campoPesquisa.value = ''; // Apaga o valor do input
