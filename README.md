@@ -1,7 +1,7 @@
 <div align="justify">
 
 <h1>Pokédex - Consumo de API avançado</h1>
-<h4>Este projeto é o resultado dos meus estudos sobre API e funções asyncronas. Não tem fim comercial, fiz ele apenas para fixar meu conhecimento sobre a matéria. Caso queira conferir o funcionamento pode acessar o site pronto clicando <a href="https://scrpokedex.netlify.app/">aqui</a></h2>
+<h4>Este projeto é o resultado dos meus estudos sobre API e funções asyncronas. Não tem fim comercial, fiz ele apenas para fixar meu conhecimento sobre a matéria. Caso queira conferir o funcionamento pode acessar o site pronto clicando <a href="https://pokedexsc.vercel.app/">aqui</a></h2>
 
 <h2>&#128161; Funções interessantes:</h2>
 <h4><ul>
